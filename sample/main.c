@@ -21,11 +21,6 @@ void testpage(void) {
     plen=make_tcp_data_pos(buf,plen,PSTR("<html><body><h1>It Works!</h1></body></html>"));
 }
 
-void test404(void) {
-    plen=make_tcp_data_pos(buf,0,PSTR("HTTP/1.0 200 OK\r\nContent-Type: text/html\r\n\r\n"));
-    plen=make_tcp_data_pos(buf,plen,PSTR("<html><body><h1>404</h1></body></html>"));
-}
-
 void sendpage(void) {
     tcp_ack(buf);
     tcp_ack_with_data(buf,plen);
@@ -73,11 +68,6 @@ int main(void) {
 				
                 if(strncmp("/ ",(char*)&(buf[dat_p+4]),2)==0){
                     testpage();
-                    sendpage();
-                    continue;
-                }
-                else {
-                    test404();
                     sendpage();
                     continue;
                 }
