@@ -3,7 +3,7 @@
 ### Description
 Library files for building embedded network system using Atmel AVR Microcontroller and Microchip ENC28J60 Ethernet Controller.
 
-### Getting Started
+### Configuration
 Configure your pin settings based on your microcontroller type. All settings are defined in `conf/config.h` file. Example :
 ```c
 #define SPI_DDR  DDRB   // Use Data Direction Register of Port B
